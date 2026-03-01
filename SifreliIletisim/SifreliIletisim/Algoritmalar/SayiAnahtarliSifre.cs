@@ -13,20 +13,20 @@ namespace SifreliIletisim.Algoritmalar
             int m = alfabe.Length;
 
             int anahtarUzunluk = anahtar.Length;
-            int j = 0; // Anahtarın neresinde olduğumuzu takip etmek için
+            int j = 0; 
 
             foreach (char c in metin)
             {
                 int x = alfabe.IndexOf(c);
                 if (x != -1)
                 {
-                    // Anahtardaki karakteri sayıya çevir (Örn: '3' karakterini 3 sayısına)
+                    
                     int kaydirma = int.Parse(anahtar[j].ToString());
 
                     int yeniIndex = (x + kaydirma) % m;
                     sonuc.Append(alfabe[yeniIndex]);
 
-                    j = (j + 1) % anahtarUzunluk; // Anahtarı döngüye sok
+                    j = (j + 1) % anahtarUzunluk; 
                 }
             }
             return sonuc.ToString();
@@ -49,7 +49,7 @@ namespace SifreliIletisim.Algoritmalar
                     int kaydirma = int.Parse(anahtar[j].ToString());
 
                     int yeniIndex = (y - kaydirma) % m;
-                    if (yeniIndex < 0) yeniIndex += m; // Negatif mod düzeltmesi
+                    if (yeniIndex < 0) yeniIndex += m; 
 
                     sonuc.Append(alfabe[yeniIndex]);
 

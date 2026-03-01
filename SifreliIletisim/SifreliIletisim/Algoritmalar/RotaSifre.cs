@@ -14,7 +14,7 @@ namespace SifreliIletisim.Algoritmalar
             char[,] tablo = new char[satirSayisi, sutunSayisi];
             int index = 0;
 
-            // Tabloyu normal soldan sağa doldur (Eksikse X koy)
+           
             for (int r = 0; r < satirSayisi; r++)
             {
                 for (int c = 0; c < sutunSayisi; c++)
@@ -24,7 +24,7 @@ namespace SifreliIletisim.Algoritmalar
             }
 
             StringBuilder sonuc = new StringBuilder();
-            // Rota: Sütun sütun oku (Çiftler yukarıdan aşağı, Tekler aşağıdan yukarı)
+           
             for (int c = 0; c < sutunSayisi; c++)
             {
                 if (c % 2 == 0)
@@ -46,7 +46,7 @@ namespace SifreliIletisim.Algoritmalar
             char[,] tablo = new char[satirSayisi, sutunSayisi];
             int index = 0;
 
-            // Şifreli metni yılan rotasına göre tabloya geri yerleştir
+            
             for (int c = 0; c < sutunSayisi; c++)
             {
                 if (c % 2 == 0)
@@ -60,7 +60,7 @@ namespace SifreliIletisim.Algoritmalar
             }
 
             StringBuilder sonuc = new StringBuilder();
-            // Normal soldan sağa satır satır okuyup metni elde et
+           
             for (int r = 0; r < satirSayisi; r++)
             {
                 for (int c = 0; c < sutunSayisi; c++) sonuc.Append(tablo[r, c]);

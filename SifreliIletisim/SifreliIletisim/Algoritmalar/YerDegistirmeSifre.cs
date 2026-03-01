@@ -19,7 +19,7 @@ namespace SifreliIletisim.Algoritmalar
                 int index = alfabe.IndexOf(c);
                 if (index != -1)
                 {
-                    sonuc.Append(anahtar[index]); // Normal alfabedeki sırayı, karmaşık alfabeden çek
+                    sonuc.Append(anahtar[index]); 
                 }
             }
             return sonuc.ToString();
@@ -33,10 +33,10 @@ namespace SifreliIletisim.Algoritmalar
 
             foreach (char c in sifreliMetin)
             {
-                int index = anahtar.IndexOf(c); // Bu kez karmaşık alfabedeki yeri bul
+                int index = anahtar.IndexOf(c); 
                 if (index != -1)
                 {
-                    sonuc.Append(alfabe[index]); // Normal alfabedeki karşılığına çevir
+                    sonuc.Append(alfabe[index]); 
                 }
             }
             return sonuc.ToString();

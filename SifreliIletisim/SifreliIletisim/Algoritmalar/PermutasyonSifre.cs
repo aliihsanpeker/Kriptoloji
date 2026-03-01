@@ -11,11 +11,11 @@ namespace SifreliIletisim.Algoritmalar
             string[] parcalar = anahtar.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             int[] key = new int[parcalar.Length];
             for (int i = 0; i < parcalar.Length; i++)
-                key[i] = int.Parse(parcalar[i].Trim()) - 1; // Kullanıcı 1'den başlar, biz 0'dan
+                key[i] = int.Parse(parcalar[i].Trim()) - 1; 
 
-            int b = key.Length; // Blok boyutu
+            int b = key.Length; 
 
-            // Metin blok boyutuna tam bölünmüyorsa sonuna X ekleyelim (Padding)
+           
             while (metin.Length % b != 0)
                 metin += "X";
 
@@ -40,7 +40,7 @@ namespace SifreliIletisim.Algoritmalar
             int b = key.Length;
             int[] tersKey = new int[b];
 
-            // Çözmek için anahtarın tersini (nereden geldiğini) buluyoruz
+           
             for (int i = 0; i < b; i++)
                 tersKey[key[i]] = i;
 
@@ -53,7 +53,7 @@ namespace SifreliIletisim.Algoritmalar
                 }
             }
 
-            // Sonradan eklenen X'leri temizleyerek geri ver
+           
             return sonuc.ToString().TrimEnd('X');
         }
     }

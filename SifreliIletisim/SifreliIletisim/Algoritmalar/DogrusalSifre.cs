@@ -8,7 +8,7 @@ namespace SifreliIletisim.Algoritmalar
     {
         public string Sifrele(string metin, string anahtar)
         {
-            // Anahtarı "a,b" formatında bekliyoruz (Örn: "5,7")
+            
             string[] parcalar = anahtar.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             if (parcalar.Length != 2) throw new Exception("Doğrusal şifreleme için anahtar 'a,b' formatında olmalıdır (Örn: 5,7).");
 
@@ -41,7 +41,7 @@ namespace SifreliIletisim.Algoritmalar
             string alfabe = MetinIslemleri.Alfabe;
             int m = alfabe.Length;
 
-            // 'a' sayısının mod m'e göre tersini bulma (Modüler Aritmetik)
+           
             int aTers = 0;
             for (int i = 0; i < m; i++)
             {
@@ -60,7 +60,7 @@ namespace SifreliIletisim.Algoritmalar
                 if (y != -1)
                 {
                     int yeniIndex = (aTers * (y - b)) % m;
-                    if (yeniIndex < 0) yeniIndex += m; // Negatif mod düzeltmesi
+                    if (yeniIndex < 0) yeniIndex += m; 
 
                     sonuc.Append(alfabe[yeniIndex]);
                 }
