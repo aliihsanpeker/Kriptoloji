@@ -77,28 +77,36 @@
             // 
             this.cmbYontemSecimi.FormattingEnabled = true;
             this.cmbYontemSecimi.Items.AddRange(new object[] {
-            "Kaydırmalı Şifreleme"});
+            "Kaydırmalı Şifreleme",
+            "Doğrusal Şifreleme",
+            "Yer Değiştirme Şifreleme",
+            "Sayı Anahtarlı Şifreleme",
+            "Permütasyon Şifreleme",
+            "Rota Şifreleme",
+            "Zigzag Şifreleme"});
             this.cmbYontemSecimi.Location = new System.Drawing.Point(131, 50);
             this.cmbYontemSecimi.Name = "cmbYontemSecimi";
-            this.cmbYontemSecimi.Size = new System.Drawing.Size(321, 24);
+            this.cmbYontemSecimi.Size = new System.Drawing.Size(248, 24);
             this.cmbYontemSecimi.TabIndex = 2;
             this.cmbYontemSecimi.SelectedIndexChanged += new System.EventHandler(this.sifrebelirleme_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(464, 56);
+            this.label3.Location = new System.Drawing.Point(385, 53);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 16);
+            this.label3.Size = new System.Drawing.Size(73, 16);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Anahtar / Parametre:";
+            this.label3.Text = "Parametre:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtAnahtarGiris
             // 
-            this.txtAnahtarGiris.Location = new System.Drawing.Point(599, 52);
+            this.txtAnahtarGiris.Location = new System.Drawing.Point(563, 50);
             this.txtAnahtarGiris.Name = "txtAnahtarGiris";
-            this.txtAnahtarGiris.Size = new System.Drawing.Size(298, 22);
+            this.txtAnahtarGiris.Size = new System.Drawing.Size(334, 22);
             this.txtAnahtarGiris.TabIndex = 4;
+            this.txtAnahtarGiris.TextChanged += new System.EventHandler(this.txtAnahtarGiris_TextChanged);
             // 
             // groupBox1
             // 
@@ -142,6 +150,7 @@
             this.btnEmailGonder.TabIndex = 8;
             this.btnEmailGonder.Text = "E-POSTA GÖNDER";
             this.btnEmailGonder.UseVisualStyleBackColor = true;
+            this.btnEmailGonder.Click += new System.EventHandler(this.btnEmailGonder_Click);
             // 
             // txtAliciEmail
             // 
@@ -248,6 +257,7 @@
             this.btnSifreCoz.TabIndex = 4;
             this.btnSifreCoz.Text = "ŞİFREYİ ÇÖZ";
             this.btnSifreCoz.UseVisualStyleBackColor = true;
+            this.btnSifreCoz.Click += new System.EventHandler(this.btnSifreCoz_Click);
             // 
             // btnEmailIndir
             // 
@@ -257,6 +267,7 @@
             this.btnEmailIndir.TabIndex = 3;
             this.btnEmailIndir.Text = "E-POSTALARI İNDİR";
             this.btnEmailIndir.UseVisualStyleBackColor = true;
+            this.btnEmailIndir.Click += new System.EventHandler(this.btnEmailIndir_Click);
             // 
             // alıcımetin
             // 
