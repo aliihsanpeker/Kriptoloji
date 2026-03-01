@@ -1,6 +1,6 @@
 ﻿namespace SifreliIletisim
 {
-    partial class ŞİFRELİ_İLETİŞİM_UYGULAMASI
+    partial class AnaForm
     {
         /// <summary>
         /// Required designer variable.
@@ -35,20 +35,21 @@
             this.txtAnahtarGiris = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.rtbOrijinalMetin = new System.Windows.Forms.RichTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.alıcımetin = new System.Windows.Forms.RichTextBox();
-            this.btnSifrele = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.rtbGonderilecekMetin = new System.Windows.Forms.RichTextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtAliciEmail = new System.Windows.Forms.TextBox();
             this.btnEmailGonder = new System.Windows.Forms.Button();
-            this.btnEmailIndir = new System.Windows.Forms.Button();
-            this.btnSifreCoz = new System.Windows.Forms.Button();
+            this.txtAliciEmail = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.rtbGonderilecekMetin = new System.Windows.Forms.RichTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnSifrele = new System.Windows.Forms.Button();
+            this.rtbOrijinalMetin = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rtbCozulmusMetin = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnSifreCoz = new System.Windows.Forms.Button();
+            this.btnEmailIndir = new System.Windows.Forms.Button();
+            this.alıcımetin = new System.Windows.Forms.RichTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,16 +76,18 @@
             // cmbYontemSecimi
             // 
             this.cmbYontemSecimi.FormattingEnabled = true;
+            this.cmbYontemSecimi.Items.AddRange(new object[] {
+            "Kaydırmalı Şifreleme"});
             this.cmbYontemSecimi.Location = new System.Drawing.Point(131, 50);
             this.cmbYontemSecimi.Name = "cmbYontemSecimi";
-            this.cmbYontemSecimi.Size = new System.Drawing.Size(121, 24);
+            this.cmbYontemSecimi.Size = new System.Drawing.Size(321, 24);
             this.cmbYontemSecimi.TabIndex = 2;
             this.cmbYontemSecimi.SelectedIndexChanged += new System.EventHandler(this.sifrebelirleme_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(346, 53);
+            this.label3.Location = new System.Drawing.Point(464, 56);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 16);
             this.label3.TabIndex = 3;
@@ -92,9 +95,9 @@
             // 
             // txtAnahtarGiris
             // 
-            this.txtAnahtarGiris.Location = new System.Drawing.Point(481, 50);
+            this.txtAnahtarGiris.Location = new System.Drawing.Point(599, 52);
             this.txtAnahtarGiris.Name = "txtAnahtarGiris";
-            this.txtAnahtarGiris.Size = new System.Drawing.Size(100, 22);
+            this.txtAnahtarGiris.Size = new System.Drawing.Size(298, 22);
             this.txtAnahtarGiris.TabIndex = 4;
             // 
             // groupBox1
@@ -131,9 +134,82 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "GÖNDERİCİ PANELİ";
             // 
+            // btnEmailGonder
+            // 
+            this.btnEmailGonder.Location = new System.Drawing.Point(6, 480);
+            this.btnEmailGonder.Name = "btnEmailGonder";
+            this.btnEmailGonder.Size = new System.Drawing.Size(449, 23);
+            this.btnEmailGonder.TabIndex = 8;
+            this.btnEmailGonder.Text = "E-POSTA GÖNDER";
+            this.btnEmailGonder.UseVisualStyleBackColor = true;
+            // 
+            // txtAliciEmail
+            // 
+            this.txtAliciEmail.Location = new System.Drawing.Point(9, 452);
+            this.txtAliciEmail.Name = "txtAliciEmail";
+            this.txtAliciEmail.Size = new System.Drawing.Size(446, 22);
+            this.txtAliciEmail.TabIndex = 7;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 433);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(142, 16);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Alıcının E-Posta Adresi";
+            // 
+            // rtbGonderilecekMetin
+            // 
+            this.rtbGonderilecekMetin.Location = new System.Drawing.Point(6, 285);
+            this.rtbGonderilecekMetin.Name = "rtbGonderilecekMetin";
+            this.rtbGonderilecekMetin.ReadOnly = true;
+            this.rtbGonderilecekMetin.Size = new System.Drawing.Size(446, 124);
+            this.rtbGonderilecekMetin.TabIndex = 5;
+            this.rtbGonderilecekMetin.Text = "";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 266);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(149, 16);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Şifrelenmiş Metin Çıktısı:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // btnSifrele
+            // 
+            this.btnSifrele.Location = new System.Drawing.Point(6, 217);
+            this.btnSifrele.Name = "btnSifrele";
+            this.btnSifrele.Size = new System.Drawing.Size(446, 23);
+            this.btnSifrele.TabIndex = 2;
+            this.btnSifrele.Text = "Metni Düzenle ve Şifrele";
+            this.btnSifrele.UseVisualStyleBackColor = true;
+            this.btnSifrele.Click += new System.EventHandler(this.btnSifrele_Click);
+            // 
+            // rtbOrijinalMetin
+            // 
+            this.rtbOrijinalMetin.Location = new System.Drawing.Point(6, 89);
+            this.rtbOrijinalMetin.Name = "rtbOrijinalMetin";
+            this.rtbOrijinalMetin.Size = new System.Drawing.Size(446, 122);
+            this.rtbOrijinalMetin.TabIndex = 1;
+            this.rtbOrijinalMetin.Text = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(113, 16);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Orjinal Metni Girin ";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.groupBox3.Controls.Add(this.rtbCozulmusMetin);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.btnSifreCoz);
             this.groupBox3.Controls.Add(this.btnEmailIndir);
@@ -146,123 +222,61 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ALICI PANELİ";
             // 
-            // label4
+            // rtbCozulmusMetin
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 16);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Orjinal Metni Girin ";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.rtbCozulmusMetin.Location = new System.Drawing.Point(6, 285);
+            this.rtbCozulmusMetin.Name = "rtbCozulmusMetin";
+            this.rtbCozulmusMetin.ReadOnly = true;
+            this.rtbCozulmusMetin.Size = new System.Drawing.Size(427, 124);
+            this.rtbCozulmusMetin.TabIndex = 6;
+            this.rtbCozulmusMetin.Text = "";
             // 
-            // rtbOrijinalMetin
+            // label6
             // 
-            this.rtbOrijinalMetin.Location = new System.Drawing.Point(12, 42);
-            this.rtbOrijinalMetin.Name = "rtbOrijinalMetin";
-            this.rtbOrijinalMetin.Size = new System.Drawing.Size(443, 122);
-            this.rtbOrijinalMetin.TabIndex = 1;
-            this.rtbOrijinalMetin.Text = "";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 16);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Şİfreli Metin ";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // alıcımetin
-            // 
-            this.alıcımetin.Location = new System.Drawing.Point(9, 42);
-            this.alıcımetin.Name = "alıcımetin";
-            this.alıcımetin.Size = new System.Drawing.Size(424, 122);
-            this.alıcımetin.TabIndex = 2;
-            this.alıcımetin.Text = "";
-            // 
-            // btnSifrele
-            // 
-            this.btnSifrele.Location = new System.Drawing.Point(12, 171);
-            this.btnSifrele.Name = "btnSifrele";
-            this.btnSifrele.Size = new System.Drawing.Size(443, 23);
-            this.btnSifrele.TabIndex = 2;
-            this.btnSifrele.Text = "Metni Düzenle ve Şifrele";
-            this.btnSifrele.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 236);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(149, 16);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Şifrelenmiş Metin Çıktısı:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // rtbGonderilecekMetin
-            // 
-            this.rtbGonderilecekMetin.Location = new System.Drawing.Point(9, 255);
-            this.rtbGonderilecekMetin.Name = "rtbGonderilecekMetin";
-            this.rtbGonderilecekMetin.ReadOnly = true;
-            this.rtbGonderilecekMetin.Size = new System.Drawing.Size(446, 124);
-            this.rtbGonderilecekMetin.TabIndex = 5;
-            this.rtbGonderilecekMetin.Text = "";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 414);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(142, 16);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Alıcının E-Posta Adresi";
-            // 
-            // txtAliciEmail
-            // 
-            this.txtAliciEmail.Location = new System.Drawing.Point(9, 434);
-            this.txtAliciEmail.Name = "txtAliciEmail";
-            this.txtAliciEmail.Size = new System.Drawing.Size(446, 22);
-            this.txtAliciEmail.TabIndex = 7;
-            // 
-            // btnEmailGonder
-            // 
-            this.btnEmailGonder.Location = new System.Drawing.Point(7, 463);
-            this.btnEmailGonder.Name = "btnEmailGonder";
-            this.btnEmailGonder.Size = new System.Drawing.Size(448, 23);
-            this.btnEmailGonder.TabIndex = 8;
-            this.btnEmailGonder.Text = "E-POSTA GÖNDER";
-            this.btnEmailGonder.UseVisualStyleBackColor = true;
-            // 
-            // btnEmailIndir
-            // 
-            this.btnEmailIndir.Location = new System.Drawing.Point(9, 171);
-            this.btnEmailIndir.Name = "btnEmailIndir";
-            this.btnEmailIndir.Size = new System.Drawing.Size(424, 23);
-            this.btnEmailIndir.TabIndex = 3;
-            this.btnEmailIndir.Text = "E-POSTALARI İNDİR";
-            this.btnEmailIndir.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 266);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(138, 16);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Çözülmüş Metin Çıktısı";
             // 
             // btnSifreCoz
             // 
-            this.btnSifreCoz.Location = new System.Drawing.Point(6, 200);
+            this.btnSifreCoz.Location = new System.Drawing.Point(6, 217);
             this.btnSifreCoz.Name = "btnSifreCoz";
             this.btnSifreCoz.Size = new System.Drawing.Size(424, 23);
             this.btnSifreCoz.TabIndex = 4;
             this.btnSifreCoz.Text = "ŞİFREYİ ÇÖZ";
             this.btnSifreCoz.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // btnEmailIndir
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 236);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 16);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Çözülmüş Metin Çıktısı";
+            this.btnEmailIndir.Location = new System.Drawing.Point(6, 31);
+            this.btnEmailIndir.Name = "btnEmailIndir";
+            this.btnEmailIndir.Size = new System.Drawing.Size(424, 23);
+            this.btnEmailIndir.TabIndex = 3;
+            this.btnEmailIndir.Text = "E-POSTALARI İNDİR";
+            this.btnEmailIndir.UseVisualStyleBackColor = true;
             // 
-            // ŞİFRELİ_İLETİŞİM_UYGULAMASI
+            // alıcımetin
+            // 
+            this.alıcımetin.Location = new System.Drawing.Point(6, 89);
+            this.alıcımetin.Name = "alıcımetin";
+            this.alıcımetin.Size = new System.Drawing.Size(424, 122);
+            this.alıcımetin.TabIndex = 2;
+            this.alıcımetin.Text = "";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 70);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 16);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Şİfreli Metin ";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // AnaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -270,7 +284,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "ŞİFRELİ_İLETİŞİM_UYGULAMASI";
+            this.Name = "AnaForm";
             this.Text = "ŞİFRELİ_İLETİŞİM_UYGULAMASI";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -305,5 +319,6 @@
         private System.Windows.Forms.Button btnEmailIndir;
         private System.Windows.Forms.Button btnSifreCoz;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RichTextBox rtbCozulmusMetin;
     }
 }
