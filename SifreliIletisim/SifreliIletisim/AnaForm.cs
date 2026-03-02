@@ -38,7 +38,7 @@ namespace SifreliIletisim
 
             string secilenYontem = cmbYontemSecimi.SelectedItem.ToString();
 
-            // Yöntem değiştikçe eski yazan anahtarı temizleyelim ki kafa karışmasın
+          
             txtAnahtarGiris.Clear();
 
             switch (secilenYontem)
@@ -96,7 +96,7 @@ namespace SifreliIletisim
         {
             try
             {
-                // 1. Gerekli alanların boş olup olmadığını kontrol et
+               
                 if (cmbYontemSecimi.SelectedItem == null)
                 {
                     MessageBox.Show("Lütfen önce bir şifreleme yöntemi seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -113,10 +113,10 @@ namespace SifreliIletisim
                     return;
                 }
 
-                // 2. Metni temizle
+          
                 string temizMetin = MetinIslemleri.MetniTemizle(hamMetin);
 
-                // 3. Seçilen yönteme göre doğru şifreleme sınıfını oluştur
+               
                 ISifreleme sifreleyici = null;
 
                 switch (secilenYontem)
@@ -134,10 +134,10 @@ namespace SifreliIletisim
                         return;
                 }
 
-                // 4. Şifrelemeyi yap ve ekrana yazdır
+             
                 string sifreliSonuc = sifreleyici.Sifrele(temizMetin, anahtar);
                 rtbGonderilecekMetin.Text = sifreliSonuc;
-                // Not: RichTextBox adını hangisi yaptıysan onu kullan (örn: rtbSifreliMetinGoster)
+              
             }
             catch (Exception ex)
             {
@@ -147,11 +147,11 @@ namespace SifreliIletisim
 
         private void btnEmailGonder_Click(object sender, EventArgs e)
         {
-            // Arayüzdeki kutulardan verileri al
+           
             string alici = txtAliciEmail.Text.Trim();
             string sifreliMetin = rtbGonderilecekMetin.Text.Trim();
 
-            // Boş alan kontrolü
+           
             if (string.IsNullOrEmpty(alici) || string.IsNullOrEmpty(sifreliMetin))
             {
                 MessageBox.Show("Lütfen önce bir metin şifreleyin ve alıcı e-posta adresini girin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -160,26 +160,25 @@ namespace SifreliIletisim
 
             try
             {
-                // İnternet işlemi birkaç saniye sürebileceği için kullanıcıya bilgi verelim
+              
                 btnEmailGonder.Enabled = false;
                 btnEmailGonder.Text = "Gönderiliyor, Lütfen Bekleyin...";
                 Cursor.Current = Cursors.WaitCursor;
 
-                // E-posta gönderim işlemini başlat
+             
                 EpostaYoneticisi mailServisi = new EpostaYoneticisi();
                 mailServisi.EpostaGonder(alici, sifreliMetin);
 
-                // Başarılı olursa
+              
                 MessageBox.Show("Şifreli metin e-posta olarak başarıyla gönderildi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                // Hata olursa
                 MessageBox.Show(ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                // İşlem bitince (başarılı veya hatalı) butonu eski haline getir
+         
                 btnEmailGonder.Enabled = true;
                 btnEmailGonder.Text = "E-POSTA GÖNDER";
                 Cursor.Current = Cursors.Default;
@@ -190,17 +189,16 @@ namespace SifreliIletisim
         {
             try
             {
-                // Kullanıcıyı bekletirken butonu deaktif yapalım
+            
                 btnEmailIndir.Enabled = false;
                 btnEmailIndir.Text = "İndiriliyor, Lütfen Bekleyin...";
                 Cursor.Current = Cursors.WaitCursor;
 
-                // Servisi çağır ve en son e-postayı getir
+             
                 EpostaYoneticisi mailServisi = new EpostaYoneticisi();
                 string gelenSifreliMetin = mailServisi.EnSonEpostayiIndir();
 
-                // Gelen metni arayüzdeki "alıcımetin" isimli RichTextBox'a yazdır
-                // Trim() ile e-postanın sonundaki gereksiz boşlukları temizliyoruz
+               
                 alıcımetin.Text = gelenSifreliMetin.Trim();
 
                 MessageBox.Show("E-postalar başarıyla kontrol edildi ve son mesaj indirildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -211,7 +209,7 @@ namespace SifreliIletisim
             }
             finally
             {
-                // Butonu eski haline getir
+         
                 btnEmailIndir.Enabled = true;
                 btnEmailIndir.Text = "E-POSTALARI İNDİR";
                 Cursor.Current = Cursors.Default;
@@ -222,11 +220,11 @@ namespace SifreliIletisim
         {
             try
             {
-                // 1. Arayüzden gerekli verileri (şifreli metin, yöntem ve anahtar) al
+              
                 string sifreliMetin = alıcımetin.Text.Trim();
                 string anahtar = txtAnahtarGiris.Text.Trim();
 
-                // 2. Boş alan kontrolleri
+    
                 if (string.IsNullOrEmpty(sifreliMetin))
                 {
                     MessageBox.Show("Çözülecek şifreli metin bulunamadı! Lütfen önce e-postaları indirin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -247,7 +245,7 @@ namespace SifreliIletisim
 
                 string secilenYontem = cmbYontemSecimi.SelectedItem.ToString();
 
-                // 3. Seçilen yönteme göre doğru sınıfı oluştur (Gönderici ile aynı mantık)
+               
                 ISifreleme sifreleyici = null;
 
                 switch (secilenYontem)
@@ -265,7 +263,7 @@ namespace SifreliIletisim
                         return;
                 }
 
-                // 4. Şifreyi çözme fonksiyonunu çalıştır ve sonucu ekrana yazdır
+             
                 string cozulmusSonuc = sifreleyici.Coz(sifreliMetin, anahtar);
                 rtbCozulmusMetin.Text = cozulmusSonuc;
 
