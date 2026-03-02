@@ -239,6 +239,7 @@
             this.rtbCozulmusMetin.Size = new System.Drawing.Size(427, 124);
             this.rtbCozulmusMetin.TabIndex = 6;
             this.rtbCozulmusMetin.Text = "";
+            this.rtbCozulmusMetin.TextChanged += new System.EventHandler(this.rtbCozulmusMetin_TextChanged);
             // 
             // label6
             // 

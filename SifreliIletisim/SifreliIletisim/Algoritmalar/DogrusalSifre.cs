@@ -17,7 +17,7 @@ namespace SifreliIletisim.Algoritmalar
 
             StringBuilder sonuc = new StringBuilder();
             string alfabe = MetinIslemleri.Alfabe;
-            int m = alfabe.Length; // 29
+            int m = alfabe.Length; 
 
             foreach (char c in metin)
             {

@@ -285,5 +285,10 @@ namespace SifreliIletisim
         {
 
         }
+
+        private void rtbCozulmusMetin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
