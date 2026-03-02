@@ -11,8 +11,8 @@ namespace SifreliIletisim.Servisler
        
         private string AEmail = "aliihsanpekerpo@gmail.com";
         private string AuygulamaSifresi = "zrdz fbbz xkzh abrs";
-        /* * private string BEmail = "batuhaneren34@gmail.com";
-           * private string BuygulamaSifresi = "16_haneli_uygulama_sifresi";*/
+   /* * private string BEmail = "batuhaneren34@gmail.com";
+      * private string BuygulamaSifresi = "16_haneli_uygulama_sifresi";*/
 
         public void EpostaGonder(string aliciEmail, string sifreliMetin)
         {
@@ -31,6 +31,7 @@ namespace SifreliIletisim.Servisler
             
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 smtp.Credentials = new NetworkCredential(AEmail, AuygulamaSifresi);
+             /* smtp.Credentials = new NetworkCredential(BEmail, BuygulamaSifresi); */
                 smtp.EnableSsl = true;
 
              
@@ -55,9 +56,9 @@ namespace SifreliIletisim.Servisler
 
                     
                     client.Authenticate(AEmail, AuygulamaSifresi);
-                    /* * client.Authenticate(aliciHesap, aliciSifre);*/
+                 /* client.Authenticate(BEmail, BuygulamaSifresi ); */
 
-                   
+
 
 
 
