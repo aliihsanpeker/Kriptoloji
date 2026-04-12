@@ -1,4 +1,4 @@
-﻿namespace SifreliIletisim
+namespace SifreliIletisim
 {
     partial class AnaForm
     {
@@ -83,7 +83,8 @@
             "Sayı Anahtarlı Şifreleme",
             "Permütasyon Şifreleme",
             "Rota Şifreleme",
-            "Zigzag Şifreleme"});
+            "Zigzag Şifreleme",
+            "Vigenere Şifreleme"});
             this.cmbYontemSecimi.Location = new System.Drawing.Point(131, 50);
             this.cmbYontemSecimi.Name = "cmbYontemSecimi";
             this.cmbYontemSecimi.Size = new System.Drawing.Size(248, 24);

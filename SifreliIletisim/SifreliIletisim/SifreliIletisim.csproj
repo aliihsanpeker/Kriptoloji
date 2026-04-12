@@ -85,6 +85,7 @@
     <Compile Include="Algoritmalar\RotaSifre.cs" />
     <Compile Include="Algoritmalar\SayiAnahtarliSifre.cs" />
     <Compile Include="Algoritmalar\YerDegistirmeSifre.cs" />
+    <Compile Include="Algoritmalar\VigenereSifre.cs" />
     <Compile Include="Algoritmalar\ZigzagSifre.cs" />
     <Compile Include="Ortak\MetinIslemleri.cs" />
     <Compile Include="Program.cs" />

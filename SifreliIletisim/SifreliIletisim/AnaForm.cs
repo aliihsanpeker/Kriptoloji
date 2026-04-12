@@ -1,4 +1,4 @@
-﻿using SifreliIletisim.Algoritmalar;
+using SifreliIletisim.Algoritmalar;
 using SifreliIletisimProjesi.Algoritmalar;
 using SifreliIletisimProjesi.Ortak;
 using SifreliIletisim.Servisler;
@@ -74,6 +74,10 @@ namespace SifreliIletisim
                 case "Zigzag Şifreleme":
                     label3.Text = "Derinlik Sayısı (Örn: 3):";
                     break;
+
+                case "Vigenere Şifreleme":
+                    label3.Text = "Anahtar Kelime (Örn: KALEM):";
+                    break;
             }
         }
 
@@ -128,6 +132,7 @@ namespace SifreliIletisim
                     case "Permütasyon Şifreleme": sifreleyici = new PermutasyonSifre(); break;
                     case "Rota Şifreleme": sifreleyici = new RotaSifre(); break;
                     case "Zigzag Şifreleme": sifreleyici = new ZigzagSifre(); break;
+                    case "Vigenere Şifreleme": sifreleyici = new VigenereSifre(); break;
 
                     default:
                         MessageBox.Show("Seçilen yöntem henüz koda entegre edilmedi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -257,6 +262,7 @@ namespace SifreliIletisim
                     case "Permütasyon Şifreleme": sifreleyici = new PermutasyonSifre(); break;
                     case "Rota Şifreleme": sifreleyici = new RotaSifre(); break;
                     case "Zigzag Şifreleme": sifreleyici = new ZigzagSifre(); break;
+                    case "Vigenere Şifreleme": sifreleyici = new VigenereSifre(); break;
 
                     default:
                         MessageBox.Show("Seçilen yöntem henüz çözme işlemine entegre edilmedi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
