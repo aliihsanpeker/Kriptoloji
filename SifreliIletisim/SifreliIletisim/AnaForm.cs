@@ -78,6 +78,10 @@ namespace SifreliIletisim
                 case "Vigenere Şifreleme":
                     label3.Text = "Anahtar Kelime (Örn: KALEM):";
                     break;
+
+                case "4 Kare Şifreleme":
+                    label3.Text = "Çift Anahtar (Harf Bazlı, Örn: BİLGİ,HIZ):";
+                    break;
             }
         }
 
@@ -118,9 +122,10 @@ namespace SifreliIletisim
                 }
 
           
-                string temizMetin = MetinIslemleri.MetniTemizle(hamMetin);
+                string temizMetin = (secilenYontem == "4 Kare Şifreleme") 
+                    ? MetinIslemleri.MetniTemizle36(hamMetin) 
+                    : MetinIslemleri.MetniTemizle(hamMetin);
 
-               
                 ISifreleme sifreleyici = null;
 
                 switch (secilenYontem)
@@ -133,13 +138,13 @@ namespace SifreliIletisim
                     case "Rota Şifreleme": sifreleyici = new RotaSifre(); break;
                     case "Zigzag Şifreleme": sifreleyici = new ZigzagSifre(); break;
                     case "Vigenere Şifreleme": sifreleyici = new VigenereSifre(); break;
+                    case "4 Kare Şifreleme": sifreleyici = new FourSquareSifre(); break;
 
                     default:
                         MessageBox.Show("Seçilen yöntem henüz koda entegre edilmedi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                 }
 
-             
                 string sifreliSonuc = sifreleyici.Sifrele(temizMetin, anahtar);
                 rtbGonderilecekMetin.Text = sifreliSonuc;
               
@@ -263,6 +268,7 @@ namespace SifreliIletisim
                     case "Rota Şifreleme": sifreleyici = new RotaSifre(); break;
                     case "Zigzag Şifreleme": sifreleyici = new ZigzagSifre(); break;
                     case "Vigenere Şifreleme": sifreleyici = new VigenereSifre(); break;
+                    case "4 Kare Şifreleme": sifreleyici = new FourSquareSifre(); break;
 
                     default:
                         MessageBox.Show("Seçilen yöntem henüz çözme işlemine entegre edilmedi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

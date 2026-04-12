@@ -84,7 +84,8 @@ namespace SifreliIletisim
             "Permütasyon Şifreleme",
             "Rota Şifreleme",
             "Zigzag Şifreleme",
-            "Vigenere Şifreleme"});
+            "Vigenere Şifreleme",
+            "4 Kare Şifreleme"});
             this.cmbYontemSecimi.Location = new System.Drawing.Point(131, 50);
             this.cmbYontemSecimi.Name = "cmbYontemSecimi";
             this.cmbYontemSecimi.Size = new System.Drawing.Size(248, 24);
