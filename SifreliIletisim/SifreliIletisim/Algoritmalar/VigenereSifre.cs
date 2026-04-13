@@ -17,7 +17,7 @@ namespace SifreliIletisimProjesi.Algoritmalar
             string alfabe = MetinIslemleri.Alfabe;
             int n = alfabe.Length;
 
-            // Anahtarı temizle ve büyük harfe çevir (Türkçe uyumlu)
+          
             string temizAnahtar = MetinIslemleri.MetniTemizle(anahtar);
             if (string.IsNullOrEmpty(temizAnahtar)) return metin;
 
@@ -26,16 +26,16 @@ namespace SifreliIletisimProjesi.Algoritmalar
                 int pIndex = alfabe.IndexOf(metin[i]);
                 if (pIndex != -1)
                 {
-                    // Key Stream: Anahtar harfinin indeksi
+                    
                     int kIndex = alfabe.IndexOf(temizAnahtar[i % temizAnahtar.Length]);
                     
-                    // C = (P + K) mod 29
+                 
                     int yeniIndex = (pIndex + kIndex) % n;
                     sonuc.Append(alfabe[yeniIndex]);
                 }
                 else
                 {
-                    sonuc.Append(metin[i]); // Alfabede yoksa olduğu gibi bırak
+                    sonuc.Append(metin[i]); 
                 }
             }
 
@@ -61,7 +61,7 @@ namespace SifreliIletisimProjesi.Algoritmalar
                 {
                     int kIndex = alfabe.IndexOf(temizAnahtar[i % temizAnahtar.Length]);
                     
-                    // P = (C - K + 29) mod 29
+                
                     int yeniIndex = (cIndex - kIndex) % n;
                     if (yeniIndex < 0) yeniIndex += n;
                     

@@ -7,15 +7,15 @@ namespace SifreliIletisim.Algoritmalar
 {
     public class HillSifre : ISifreleme
     {
-        private const int Mod = 36; // Alfabe36 boyutu
+        private const int Mod = 36; 
 
         public string Sifrele(string metin, string anahtar)
         {
             int[,] keyMatrix = ParseKey(anahtar);
-            // Giriş temizleme: Boşluk, rakam ve özel karakterlerden arındırılmış Alfabe36 uyumlu metin
+            
             string temizMetin = MetinIslemleri.MetniTemizle36(metin);
 
-            // Dolgu Karakteri: Eğer metin uzunluğu matris katı değilse 'X' ekle (Türkçede bulunmaz)
+           
             if (temizMetin.Length % 2 != 0)
             {
                 temizMetin += "X";

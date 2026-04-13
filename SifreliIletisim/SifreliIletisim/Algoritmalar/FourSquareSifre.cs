@@ -18,18 +18,18 @@ namespace SifreliIletisimProjesi.Algoritmalar
         {
             string alfabe = MetinIslemleri.Alfabe36;
 
-            // Q1 ve Q4 standart alfabetik matrisler
+          
             for (int i = 0; i < 36; i++)
             {
                 q1[i / 6, i % 6] = alfabe[i];
                 q4[i / 6, i % 6] = alfabe[i];
             }
 
-            // Q2 (Sağ-Üst) - 1. Anahtara göre
+          
             string q2Dizi = AnahtardanDiziOlustur(anahtar1, alfabe);
             for (int i = 0; i < 36; i++) q2[i / 6, i % 6] = q2Dizi[i];
 
-            // Q3 (Sol-Alt) - 2. Anahtara göre
+            
             string q3Dizi = AnahtardanDiziOlustur(anahtar2, alfabe);
             for (int i = 0; i < 36; i++) q3[i / 6, i % 6] = q3Dizi[i];
         }
@@ -67,7 +67,7 @@ namespace SifreliIletisimProjesi.Algoritmalar
             MatrisleriHazirla(anahtarlar[0], anahtarlar[1]);
 
             string temizMetin = MetinIslemleri.MetniTemizle36(metin);
-            if (temizMetin.Length % 2 != 0) temizMetin += "X"; // Tekse X ekle
+            if (temizMetin.Length % 2 != 0) temizMetin += "X"; 
 
             StringBuilder sonuc = new StringBuilder();
             for (int i = 0; i < temizMetin.Length; i += 2)
