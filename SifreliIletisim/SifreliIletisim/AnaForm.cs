@@ -126,7 +126,7 @@ namespace SifreliIletisim
                 }
 
           
-                string temizMetin = (secilenYontem == "4 Kare Şifreleme") 
+                string temizMetin = (secilenYontem == "4 Kare Şifreleme" || secilenYontem == "Hill Şifreleme") 
                     ? MetinIslemleri.MetniTemizle36(hamMetin) 
                     : MetinIslemleri.MetniTemizle(hamMetin);
 
