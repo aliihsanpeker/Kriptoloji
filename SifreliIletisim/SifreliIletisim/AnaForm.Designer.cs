@@ -87,7 +87,7 @@ namespace SifreliIletisim
             "Vigenere Şifreleme",
             "4 Kare Şifreleme",
             "Hill Şifreleme"});
-            this.cmbYontemSecimi.Location = new System.Drawing.Point(131, 50);
+            this.cmbYontemSecimi.Location = new System.Drawing.Point(9, 72);
             this.cmbYontemSecimi.Name = "cmbYontemSecimi";
             this.cmbYontemSecimi.Size = new System.Drawing.Size(248, 24);
             this.cmbYontemSecimi.TabIndex = 2;
@@ -105,7 +105,7 @@ namespace SifreliIletisim
             // 
             // txtAnahtarGiris
             // 
-            this.txtAnahtarGiris.Location = new System.Drawing.Point(563, 50);
+            this.txtAnahtarGiris.Location = new System.Drawing.Point(388, 74);
             this.txtAnahtarGiris.Name = "txtAnahtarGiris";
             this.txtAnahtarGiris.Size = new System.Drawing.Size(334, 22);
             this.txtAnahtarGiris.TabIndex = 4;
