@@ -83,9 +83,8 @@ namespace SifreliIletisim
                     label3.Text = "Çift Anahtar (Harf Bazlı, Örn: BİLGİ,HIZ):";
                     break;
 
-                case "Hill Climbing (Tepe Tırmanma)":
-                    label3.Text = "Amaç: Hedef Y=10 & Min Enerji";
-                    txtAnahtarGiris.Text = "Otomatik Simülasyon";
+                case "Hill Şifreleme":
+                    label3.Text = "2x2 Matris (Örn: 3,5,1,2):";
                     break;
             }
         }
@@ -144,19 +143,7 @@ namespace SifreliIletisim
                     case "Zigzag Şifreleme": sifreleyici = new ZigzagSifre(); break;
                     case "Vigenere Şifreleme": sifreleyici = new VigenereSifre(); break;
                     case "4 Kare Şifreleme": sifreleyici = new FourSquareSifre(); break;
-
-                    case "Hill Climbing (Tepe Tırmanma)":
-                        HillClimbing hc = new HillClimbing();
-                        var sonuc = hc.Optimize();
-                        string msg = $"--- Hill Climbing Sonucu ---\n" +
-                                     $"En İyi İtiş Gücü: {sonuc.BestThrust:F4}\n" +
-                                     $"Ulaşılan Yükseklik: {sonuc.FinalHeight:F4} (Hedef: 10)\n" +
-                                     $"Harcanan Toplam Enerji: {sonuc.TotalEnergy:F4}\n" +
-                                     $"Hata Payı: {Math.Abs(sonuc.FinalHeight - 10):F4}";
-                        
-                        rtbGonderilecekMetin.Text = msg;
-                        MessageBox.Show(msg, "Optimizasyon Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
+                    case "Hill Şifreleme": sifreleyici = new HillSifre(); break;
 
                     default:
                         MessageBox.Show("Seçilen yöntem henüz koda entegre edilmedi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -287,6 +274,7 @@ namespace SifreliIletisim
                     case "Zigzag Şifreleme": sifreleyici = new ZigzagSifre(); break;
                     case "Vigenere Şifreleme": sifreleyici = new VigenereSifre(); break;
                     case "4 Kare Şifreleme": sifreleyici = new FourSquareSifre(); break;
+                    case "Hill Şifreleme": sifreleyici = new HillSifre(); break;
 
                     default:
                         MessageBox.Show("Seçilen yöntem henüz çözme işlemine entegre edilmedi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
