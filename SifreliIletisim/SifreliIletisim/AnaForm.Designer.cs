@@ -50,6 +50,8 @@ namespace SifreliIletisim
             this.btnEmailIndir = new System.Windows.Forms.Button();
             this.alıcımetin = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtAlanEmail = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -221,6 +223,8 @@ namespace SifreliIletisim
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.txtAlanEmail);
             this.groupBox3.Controls.Add(this.rtbCozulmusMetin);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.btnSifreCoz);
@@ -265,7 +269,7 @@ namespace SifreliIletisim
             // 
             // btnEmailIndir
             // 
-            this.btnEmailIndir.Location = new System.Drawing.Point(6, 31);
+            this.btnEmailIndir.Location = new System.Drawing.Point(9, 480);
             this.btnEmailIndir.Name = "btnEmailIndir";
             this.btnEmailIndir.Size = new System.Drawing.Size(424, 23);
             this.btnEmailIndir.TabIndex = 3;
@@ -290,6 +294,23 @@ namespace SifreliIletisim
             this.label5.TabIndex = 1;
             this.label5.Text = "Şİfreli Metin ";
             this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // txtAlanEmail
+            // 
+            this.txtAlanEmail.Location = new System.Drawing.Point(9, 452);
+            this.txtAlanEmail.Name = "txtAlanEmail";
+            this.txtAlanEmail.Size = new System.Drawing.Size(424, 22);
+            this.txtAlanEmail.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 433);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(127, 16);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Alan E-Posta Adresi";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // AnaForm
             // 
@@ -335,5 +356,7 @@ namespace SifreliIletisim
         private System.Windows.Forms.Button btnSifreCoz;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RichTextBox rtbCozulmusMetin;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtAlanEmail;
     }
 }

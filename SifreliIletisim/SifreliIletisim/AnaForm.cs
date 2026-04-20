@@ -204,16 +204,21 @@ namespace SifreliIletisim
         {
             try
             {
-            
+                string alanEmail = txtAlanEmail.Text.Trim();
+
+                if (string.IsNullOrEmpty(alanEmail))
+                {
+                    MessageBox.Show("Lütfen e-postalarını indirmek istediğiniz adresi girin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 btnEmailIndir.Enabled = false;
                 btnEmailIndir.Text = "İndiriliyor, Lütfen Bekleyin...";
                 Cursor.Current = Cursors.WaitCursor;
 
-             
                 EpostaYoneticisi mailServisi = new EpostaYoneticisi();
-                string gelenSifreliMetin = mailServisi.EnSonEpostayiIndir();
+                string gelenSifreliMetin = mailServisi.EnSonEpostayiIndir(alanEmail);
 
-               
                 alıcımetin.Text = gelenSifreliMetin.Trim();
 
                 MessageBox.Show("E-postalar başarıyla kontrol edildi ve son mesaj indirildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -303,6 +308,11 @@ namespace SifreliIletisim
         }
 
         private void rtbCozulmusMetin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }
