@@ -88,7 +88,8 @@ namespace SifreliIletisim
             "Zigzag Şifreleme",
             "Vigenere Şifreleme",
             "4 Kare Şifreleme",
-            "Hill Şifreleme"});
+            "Hill Şifreleme",
+            "RSA Şifreleme"});
             this.cmbYontemSecimi.Location = new System.Drawing.Point(9, 72);
             this.cmbYontemSecimi.Name = "cmbYontemSecimi";
             this.cmbYontemSecimi.Size = new System.Drawing.Size(248, 24);

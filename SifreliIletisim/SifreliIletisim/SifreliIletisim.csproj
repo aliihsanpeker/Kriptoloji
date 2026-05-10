@@ -89,6 +89,7 @@
     <Compile Include="Algoritmalar\VigenereSifre.cs" />
     <Compile Include="Algoritmalar\ZigzagSifre.cs" />
     <Compile Include="Algoritmalar\HillSifre.cs" />
+    <Compile Include="Algoritmalar\RsaSifre.cs" />
     <Compile Include="Ortak\MetinIslemleri.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

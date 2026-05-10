@@ -86,6 +86,10 @@ namespace SifreliIletisim
                 case "Hill Şifreleme":
                     label3.Text = "2x2 Matris (Örn: 3,5,1,2):";
                     break;
+
+                case "RSA Şifreleme":
+                    label3.Text = "İki Asal Sayı (Örn: 61,53):";
+                    break;
             }
         }
 
@@ -126,9 +130,14 @@ namespace SifreliIletisim
                 }
 
           
-                string temizMetin = (secilenYontem == "4 Kare Şifreleme" || secilenYontem == "Hill Şifreleme") 
-                    ? MetinIslemleri.MetniTemizle36(hamMetin) 
-                    : MetinIslemleri.MetniTemizle(hamMetin);
+                // RSA ham metin üzerinde çalışır, diğerleri temizlenmiş Türkçe alfabe kullanır
+                string temizMetin;
+                if (secilenYontem == "RSA Şifreleme")
+                    temizMetin = hamMetin;
+                else if (secilenYontem == "4 Kare Şifreleme" || secilenYontem == "Hill Şifreleme")
+                    temizMetin = MetinIslemleri.MetniTemizle36(hamMetin);
+                else
+                    temizMetin = MetinIslemleri.MetniTemizle(hamMetin);
 
                 ISifreleme sifreleyici = null;
 
@@ -144,6 +153,7 @@ namespace SifreliIletisim
                     case "Vigenere Şifreleme": sifreleyici = new VigenereSifre(); break;
                     case "4 Kare Şifreleme": sifreleyici = new FourSquareSifre(); break;
                     case "Hill Şifreleme": sifreleyici = new HillSifre(); break;
+                    case "RSA Şifreleme": sifreleyici = new RsaSifre(); break;
 
                     default:
                         MessageBox.Show("Seçilen yöntem henüz koda entegre edilmedi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -280,6 +290,7 @@ namespace SifreliIletisim
                     case "Vigenere Şifreleme": sifreleyici = new VigenereSifre(); break;
                     case "4 Kare Şifreleme": sifreleyici = new FourSquareSifre(); break;
                     case "Hill Şifreleme": sifreleyici = new HillSifre(); break;
+                    case "RSA Şifreleme": sifreleyici = new RsaSifre(); break;
 
                     default:
                         MessageBox.Show("Seçilen yöntem henüz çözme işlemine entegre edilmedi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
