@@ -7,14 +7,12 @@ using System.Text;
 
 namespace SifreliIletisimProjesi.Algoritmalar
 {
-    /// <summary>
     
-    /// </summary>
     public class RsaSifre : ISifreleme
     {
         public string Sifrele(string metin, string anahtar)
         {
-            // Diğer algoritmalarla aynı standart: büyük harf + özel karakter/boşluk temizleme
+           
             string temizMetin = MetinIslemleri.MetniTemizle(metin);
 
             var asallar = AnahtariAyristir(anahtar);
@@ -73,15 +71,11 @@ namespace SifreliIletisimProjesi.Algoritmalar
                 sonuc.Append((char)(int)m);
             }
 
-            // Çözülen metni büyük harfe çevir (standart gereği)
+            
             return sonuc.ToString().ToUpper(new CultureInfo("tr-TR"));
         }
 
-        // ---------- Yardımcı Metotlar ----------
-
-        /// <summary>
-        
-        /// </summary>
+      
         private Tuple<BigInteger, BigInteger> AnahtariAyristir(string anahtar)
         {
             string[] parcalar = anahtar.Split(',');
@@ -94,9 +88,7 @@ namespace SifreliIletisimProjesi.Algoritmalar
             return Tuple.Create(p, q);
         }
 
-        /// <summary>
-       
-        /// </summary>
+      
         private void AsalKontrol(BigInteger p, BigInteger q)
         {
             if (!AsalMi(p))
@@ -107,9 +99,7 @@ namespace SifreliIletisimProjesi.Algoritmalar
                 throw new Exception("p ve q farklı asal sayılar olmalıdır!");
         }
 
-        /// <summary>
         
-        /// </summary>
         private bool AsalMi(BigInteger n)
         {
             if (n < 2) return false;
@@ -124,9 +114,7 @@ namespace SifreliIletisimProjesi.Algoritmalar
             return true;
         }
 
-        /// <summary>
        
-        /// </summary>
         private BigInteger PublikUstelBul(BigInteger phi)
         {
            
@@ -144,9 +132,7 @@ namespace SifreliIletisimProjesi.Algoritmalar
             throw new Exception("Uygun bir e değeri bulunamadı. Farklı asal sayılar deneyin.");
         }
 
-        /// <summary>
-       
-        /// </summary>
+        
         private BigInteger ModulerTers(BigInteger a, BigInteger m)
         {
             BigInteger m0 = m;
