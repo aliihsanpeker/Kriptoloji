@@ -1,28 +1,22 @@
 using SifreliIletisim.Algoritmalar;
+using SifreliIletisimProjesi.Ortak;
 using System;
+using System.Globalization;
 using System.Numerics;
 using System.Text;
 
 namespace SifreliIletisimProjesi.Algoritmalar
 {
     /// <summary>
-    /// RSA Asimetrik Şifreleme Algoritması
-    /// 
-    /// Kullanım: Anahtar alanına iki asal sayı girilir (Örn: 61,53)
-    /// 
-    /// Adımlar:
-    /// 1. n = p * q hesaplanır (ortak anahtar bileşeni)
-    /// 2. phi(n) = (p-1) * (q-1) hesaplanır (Euler totient)
-    /// 3. e seçilir: 1 < e < phi(n) ve gcd(e, phi(n)) = 1
-    /// 4. d hesaplanır: d * e ≡ 1 (mod phi(n))  (modüler ters)
-    /// 5. Şifreleme: C = M^e mod n
-    /// 6. Çözme:     M = C^d mod n
+    
     /// </summary>
     public class RsaSifre : ISifreleme
     {
         public string Sifrele(string metin, string anahtar)
         {
-            // Anahtar formatı: "p,q" (iki asal sayı)
+            // Diğer algoritmalarla aynı standart: büyük harf + özel karakter/boşluk temizleme
+            string temizMetin = MetinIslemleri.MetniTemizle(metin);
+
             var asallar = AnahtariAyristir(anahtar);
             BigInteger p = asallar.Item1;
             BigInteger q = asallar.Item2;
@@ -35,15 +29,13 @@ namespace SifreliIletisimProjesi.Algoritmalar
 
             StringBuilder sonuc = new StringBuilder();
 
-            // Her karakteri tek tek şifrele
-            for (int i = 0; i < metin.Length; i++)
+            for (int i = 0; i < temizMetin.Length; i++)
             {
-                BigInteger m = (BigInteger)metin[i];
+                BigInteger m = (BigInteger)temizMetin[i];
 
                 if (m >= n)
                     throw new Exception("Karakter değeri n'den büyük. Daha büyük asal sayılar kullanın.");
 
-                // C = M^e mod n
                 BigInteger c = BigInteger.ModPow(m, e, n);
 
                 if (i > 0) sonuc.Append(" ");
@@ -68,7 +60,6 @@ namespace SifreliIletisimProjesi.Algoritmalar
 
             StringBuilder sonuc = new StringBuilder();
 
-            // Şifreli metin boşluklarla ayrılmış sayılardan oluşur
             string[] parcalar = sifreliMetin.Trim().Split(' ');
 
             foreach (string parca in parcalar)
@@ -77,19 +68,19 @@ namespace SifreliIletisimProjesi.Algoritmalar
 
                 BigInteger c = BigInteger.Parse(parca);
 
-                // M = C^d mod n
                 BigInteger m = BigInteger.ModPow(c, d, n);
 
                 sonuc.Append((char)(int)m);
             }
 
-            return sonuc.ToString();
+            // Çözülen metni büyük harfe çevir (standart gereği)
+            return sonuc.ToString().ToUpper(new CultureInfo("tr-TR"));
         }
 
         // ---------- Yardımcı Metotlar ----------
 
         /// <summary>
-        /// Anahtar stringini p ve q olarak ayırır
+        
         /// </summary>
         private Tuple<BigInteger, BigInteger> AnahtariAyristir(string anahtar)
         {
@@ -104,7 +95,7 @@ namespace SifreliIletisimProjesi.Algoritmalar
         }
 
         /// <summary>
-        /// p ve q'nun asal olduğunu kontrol eder
+       
         /// </summary>
         private void AsalKontrol(BigInteger p, BigInteger q)
         {
@@ -117,7 +108,7 @@ namespace SifreliIletisimProjesi.Algoritmalar
         }
 
         /// <summary>
-        /// Basit asal sayı testi (küçük-orta boyutlu sayılar için)
+        
         /// </summary>
         private bool AsalMi(BigInteger n)
         {
@@ -134,17 +125,16 @@ namespace SifreliIletisimProjesi.Algoritmalar
         }
 
         /// <summary>
-        /// phi(n) ile aralarında asal olan en küçük e değerini bulur
-        /// Genellikle 65537 tercih edilir, uygun değilse 3'ten itibaren arar
+       
         /// </summary>
         private BigInteger PublikUstelBul(BigInteger phi)
         {
-            // Standart RSA public exponent
+           
             BigInteger e = 65537;
             if (e < phi && BigInteger.GreatestCommonDivisor(e, phi) == 1)
                 return e;
 
-            // 65537 uygun değilse küçükten itibaren ara
+           
             for (e = 3; e < phi; e += 2)
             {
                 if (BigInteger.GreatestCommonDivisor(e, phi) == 1)
@@ -155,8 +145,7 @@ namespace SifreliIletisimProjesi.Algoritmalar
         }
 
         /// <summary>
-        /// Genişletilmiş Öklid Algoritması ile modüler ters hesaplar
-        /// d * e ≡ 1 (mod phi)
+       
         /// </summary>
         private BigInteger ModulerTers(BigInteger a, BigInteger m)
         {
